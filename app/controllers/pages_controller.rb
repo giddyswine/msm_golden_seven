@@ -1,6 +1,24 @@
 class PagesController < ApplicationController
 
     def index
+        @director_array=Director.all.ids
+        @directors=Director.all
+        @names=[]
+        @ids=[]
+        @bios=[]
+        @dob=[]
+        @director_array.each do |info|
+            name = Director.find(info).name
+            id = Director.find(info).id
+            bio = Director.find(info).bio
+            dob = Director.find(info).dob
+            @names.push(name)
+            @ids.push(id)
+            @bios.push(bio)
+            @dob.push(dob)
+            end
+        
+        
         render("page_templates/index.html.erb")
     end
    
