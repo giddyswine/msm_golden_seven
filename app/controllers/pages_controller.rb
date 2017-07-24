@@ -7,15 +7,18 @@ class PagesController < ApplicationController
         @ids=[]
         @bios=[]
         @dob=[]
+        @img=[]
         @director_array.each do |info|
             name = Director.find(info).name
             id = Director.find(info).id
             bio = Director.find(info).bio
             dob = Director.find(info).dob
+            img = Director.find(info).image_url
             @names.push(name)
             @ids.push(id)
             @bios.push(bio)
             @dob.push(dob)
+            @img.push(img)
             end
         
         

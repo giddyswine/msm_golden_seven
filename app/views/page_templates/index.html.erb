@@ -10,3 +10,25 @@
   </head>
   
  <h1>Hello</h1>
+ <ul>
+  <% @director_array.each do |info| %>
+  <div class="thumbnail">
+    <img src="<%= Director.find(info).image_url %>">
+
+    <div class="caption">
+      <a href="/photos/<%= Director.find(info).id %>" class="btn btn-default btn-block">
+        Show Details
+      </a>
+
+      <a href="/photos/<%= Director.find(info).id %>/edit" class="btn btn-default btn-block">
+        Edit
+      </a>
+
+      <a href="/delete_photo/<%= Director.find(info).id %>"" class="btn btn-default btn-block">
+        Delete
+      </a>
+    </div>
+  </div>
+
+  <% end %>
+</ul>
