@@ -83,9 +83,19 @@ class PagesController < ApplicationController
     end
 
     def edit_director
+        @id=params["some_id"]
+        @name=Director.find(@id).name
+        @image=Director.find(@id).image_url
+        @bio=Director.find(@id).bio
+        @dob=Director.find(@id).dob
         render("page_templates/edit_director.html.erb")
     end
     def edit_actor
+        @id=params["some_id"]
+        @name=Actor.find(@id).name
+        @image=Actor.find(@id).image_url
+        @bio=Actor.find(@id).bio
+        @dob=Actor.find(@id).dob
         render("page_templates/edit_actor.html.erb")
     end
     def edit_movie
@@ -105,8 +115,47 @@ class PagesController < ApplicationController
         render("page_templates/create_row.html.erb")
     end
 
-    def update_row
-        render("page_templates/update_form.html.erb")
+    def update_actor
+        update_actor=Actor.find(params["some_id"])
+        update_actor.image_url=params["img"]
+        update_actor.name=params["name"]
+        update_actor.dob=params["dob"]
+        update_actor.save
+        @id = params["some_id"]
+        @img = Actor.find(@id).image_url
+        @dob = Actor.find(@id).dob
+        @name = Actor.find(@id).name
+        
+       redirect_to "/actors/#{@id}"
+    end
+    def update_director
+        update_director=Director.find(params["some_id"])
+        update_director.image_url=params["img"]
+        update_director.name=params["name"]
+        update_director.dob=params["dob"]
+        update_director.save
+        @id = params["some_id"]
+        @img = Director.find(@id).image_url
+        @dob = Director.find(@id).dob
+        @name = Director.find(@id).name
+        
+       redirect_to "/directors/#{@id}"
+    end
+    def update_movie
+        update_movie=Movie.find(params["some_id"])
+        update_movie.image_url=params["img"]
+        update_movie.title=params["title"]
+        update_movie.year=params["year"]
+        update_movie.description=params["description"]
+        update_movie.duration=params["duration"]
+        update_movie.save
+        @id = params["some_id"]
+        @img = Movie.find(@id).image_url
+        @title = Movie.find(@id).title
+        @duration = Movie.find(@id).duration
+        @description = Movie.find(@id).description
+        
+       redirect_to "/movies/#{@id}"
     end
 
     def destroy_row

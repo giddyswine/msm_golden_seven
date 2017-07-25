@@ -16,42 +16,36 @@
     <div class="container">
       <div class="col-md-12">
 
-        <h1>Edit <%=@title%></h1>
+        <h1>Edit <%=@name%></h1>
 
-<form action="/update_movie/<%=@id%>">
+
+<form action="/update_director/<%=@id%>">
   <div>
-    <label for="source_input">
+    <label for="img_input">
       Image URL
     </label>
 
-    <input id="source_input" type="text" name="img" value="<%=Movie.find(@id).image_url%>">
+    <input id="img_input" type="text" name="img" value="<%=Director.find(@id).image_url%>">
   </div>
 
   <div>
-    <label for="title_input">
-      Title
+    <label for="name_input">
+      Name
     </label>
 
-    <input id="title_input" type="text" name="title" value="<%=Movie.find(@id).title%>">
+    <input id="name_input" type="text" name="name" value="<%=Director.find(@id).name%>">
   </div>
 
   <div>
-    <label for="caption_input">
-      Description
+    <label for="dob_input">
+      DOB
     </label>
 
-    <input id="caption_input" type="text" name="description" value="<%=Movie.find(@id).description%>">
-  </div>
-  <div>
-    <label for="duration_input">
-      Duration
-    </label>
-
-    <input id="duration_input" type="text" name="duration" value="<%=Movie.find(@id).duration%>">
+    <input id="dob_input" type="text" name="dob" value="<%=Director.find(@id).dob%>">
   </div>
 
   <button>
-    Update Movie
+    Update Director
   </button>
 </form>
 
