@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     
     # READ
     get("/directors", { :controller => "pages", :action => "directors" })
-    get("/directors/:some_id", { :controller => "pages", :action => "show" })
+    get("/directors/:some_id", { :controller => "pages", :action => "directorid" })
     get("/actors", { :controller => "pages", :action => "actors" })
-    get("/actors/:some_id", { :controller => "pages", :action => "show" })
+    get("/actors/:some_id", { :controller => "pages", :action => "actorid" })
     get("/movies", { :controller => "pages", :action => "movies" })
-    get("/movies/:some_id", { :controller => "pages", :action => "show" })
+    get("/movies/:some_id", { :controller => "pages", :action => "movieid" })
     
     # UPDATE
     get("/directors/:some_id/edit", { :controller => "pages", :action => "edit_form" })

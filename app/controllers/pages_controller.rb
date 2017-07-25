@@ -82,8 +82,17 @@ class PagesController < ApplicationController
         render("page_templates/create_row.html.erb")
     end
 
-    def show
-        render("page_templates/show.html.erb")
+    def directorid
+        @id=params["some_id"]
+        render("page_templates/directorid.html.erb")
+    end
+    def actorid
+        @id=params["some_id"]
+        render("page_templates/actorid.html.erb")
+    end
+    def movieid
+        @id=params["some_id"]
+        render("page_templates/movieid.html.erb")
     end
 
     def edit_form
