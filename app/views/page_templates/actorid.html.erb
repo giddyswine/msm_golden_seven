@@ -8,7 +8,24 @@
     <link rel="stylesheet" media="all" href="/assets/application-1c79c29286204cfec74780022d0186e27fc9f09c8b5ae96d566e54dca4b9ce48.css" />
     <script src="/assets/application-a1b05e0595224c422d49fd5ef6dd6cb8f9655f710b432bb9b8a6af9638eca09a.js"></script>
   </head>
-  
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="/actors" class="btn btn-default">
+              Go back
+            </a>
+            
+            <a href="/actor/<%=@id%>/edit" class="btn btn-default">
+              Edit
+            </a>
+            
+            <a href="/delete_actor/<%=@id%>" class="btn btn-default">
+              Delete
+            </a>
+        </div>
+    </div>
+</div>
+
  <h1> <%=Actor.find(@id).name%></h1>
  <img src= "<%=Actor.find(@id).image_url%>">
  <p> <%=Actor.find(@id).bio%></p>

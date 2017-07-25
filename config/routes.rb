@@ -16,8 +16,12 @@ Rails.application.routes.draw do
     get("/movies/:some_id", { :controller => "pages", :action => "movieid" })
     
     # UPDATE
-    get("/directors/:some_id/edit", { :controller => "pages", :action => "edit_form" })
-    get("/update_directors/:some_id", { :controller => "pages", :action => "update_row" })
+    get("/directors/:some_id/edit", { :controller => "pages", :action => "edit_director" })
+    get("/update_director/:some_id", { :controller => "pages", :action => "update_director" })
+    get("/actor/:some_id/edit", { :controller => "pages", :action => "edit_actor" })
+    get("/update_actor/:some_id", { :controller => "pages", :action => "update_actor" })
+    get("/movie/:some_id/edit", { :controller => "pages", :action => "edit_movie" })
+    get("/update_movie/:some_id", { :controller => "pages", :action => "update_movie" })
     
     # DELETE
     get("/delete_director/:toast_id", { :controller => "pages", :action => "destroy_row" })

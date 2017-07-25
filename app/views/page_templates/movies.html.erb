@@ -33,6 +33,14 @@
         </div>
         <div class="col-sm-2">
               <p><%= Movie.find(info).duration %> minutes</p>
+                              <div>
+                <a href="/movie/<%=Movie.find(info).id%>/edit" class="btn btn-default">
+                  Edit
+                </a>
+                </div>
+                <a href="/delete_movie/<%=Movie.find(info).id%>" class="btn btn-default">
+                  Delete
+                </a>
         </div>
     </div>
   </div>

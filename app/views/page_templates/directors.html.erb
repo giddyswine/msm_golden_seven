@@ -30,6 +30,15 @@
 
         <div class="col-sm-2">
               <p><%= Director.find(info).dob %></p>
+                        <div>
+                <a href="/director/<%=Director.find(info).id%>/edit" class="btn btn-default">
+                  Edit
+                </a>
+                </div>
+                <a href="/delete_director/<%=Director.find(info).id%>" class="btn btn-default">
+                  Delete
+                </a>
+
         </div>
     </div>
   </div>

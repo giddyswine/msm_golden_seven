@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
     def directors
         @director_array=Director.all.ids
         @directors=Director.all
@@ -22,7 +21,6 @@ class PagesController < ApplicationController
             end
         render("page_templates/directors.html.erb")
     end
-
     def actors
         @actor_array=Actor.all.ids
         @directors=Actor.all
@@ -45,7 +43,6 @@ class PagesController < ApplicationController
             end
         render("page_templates/actors.html.erb")
     end
-
     def movies
         @movies_array=Movie.all.ids
         @movies=Movie.all
@@ -71,16 +68,6 @@ class PagesController < ApplicationController
             end
         render("page_templates/movies.html.erb")
     end
-        
-        
-   
-    def new_form
-        render("page_templates/new_form.html.erb")
-    end
-
-    def create_row
-        render("page_templates/create_row.html.erb")
-    end
 
     def directorid
         @id=params["some_id"]
@@ -95,8 +82,27 @@ class PagesController < ApplicationController
         render("page_templates/movieid.html.erb")
     end
 
-    def edit_form
-        render("page_templates/edit_form.html.erb")
+    def edit_director
+        render("page_templates/edit_director.html.erb")
+    end
+    def edit_actor
+        render("page_templates/edit_actor.html.erb")
+    end
+    def edit_movie
+        @id=params["some_id"]
+        @title=Movie.find(@id).title
+        @image=Movie.find(@id).image_url
+        @description=Movie.find(@id).description
+        @duration=Movie.find(@id).duration
+        render("page_templates/edit_movie.html.erb")
+    end
+
+    def new_form
+        render("page_templates/new_form.html.erb")
+    end
+
+    def create_row
+        render("page_templates/create_row.html.erb")
     end
 
     def update_row
