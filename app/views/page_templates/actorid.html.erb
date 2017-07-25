@@ -9,4 +9,7 @@
     <script src="/assets/application-a1b05e0595224c422d49fd5ef6dd6cb8f9655f710b432bb9b8a6af9638eca09a.js"></script>
   </head>
   
- <h1>director <%=params["some_id"]%></h1>
+ <h1> <%=Actor.find(@id).name%></h1>
+ <img src= "<%=Actor.find(@id).image_url%>">
+ <p> <%=Actor.find(@id).bio%></p>
+ <p> <%=Actor.find(@id).dob%></p>
