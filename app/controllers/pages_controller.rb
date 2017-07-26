@@ -107,10 +107,6 @@ class PagesController < ApplicationController
         render("page_templates/edit_movie.html.erb")
     end
 
-    def new_form
-        render("page_templates/new_form.html.erb")
-    end
-
     def new_actor
         new_actor=Actor.new
         new_actor.dob=params["dob"]
@@ -159,10 +155,12 @@ class PagesController < ApplicationController
         update_actor.image_url=params["img"]
         update_actor.name=params["name"]
         update_actor.dob=params["dob"]
+        update_actor.bio=params["bio"]
         update_actor.save
         @id = params["some_id"]
         @img = Actor.find(@id).image_url
         @dob = Actor.find(@id).dob
+        @bio = Actor.find(@id).bio
         @name = Actor.find(@id).name
         
        redirect_to "/actors/#{@id}"
@@ -172,10 +170,12 @@ class PagesController < ApplicationController
         update_director.image_url=params["img"]
         update_director.name=params["name"]
         update_director.dob=params["dob"]
+        update_director.bio=params["bio"]
         update_director.save
         @id = params["some_id"]
         @img = Director.find(@id).image_url
         @dob = Director.find(@id).dob
+        @bio = Director.find(@id).bio
         @name = Director.find(@id).name
         
        redirect_to "/directors/#{@id}"
