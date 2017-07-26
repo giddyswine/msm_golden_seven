@@ -111,8 +111,47 @@ class PagesController < ApplicationController
         render("page_templates/new_form.html.erb")
     end
 
-    def create_row
-        render("page_templates/create_row.html.erb")
+    def new_actor
+        new_actor=Actor.new
+        new_actor.dob=params["dob"]
+        new_actor.image_url=params["img"]
+        new_actor.name=params["name"]
+        new_actor.bio=params["bio"]
+        new_actor.save
+
+        redirect_to("/actors")
+    end
+    def new_director
+        new_director=Director.new
+        new_director.dob=params["dob"]
+        new_director.image_url=params["img"]
+        new_director.name=params["name"]
+        new_director.bio=params["bio"]
+        new_director.save
+
+        redirect_to("/directors")
+    end
+    def new_movie
+        new_movie=Movie.new
+        new_movie.title=params["title"]
+        new_movie.image_url=params["img"]
+        new_movie.description=params["description"]
+        new_movie.year=params["year"]
+        new_movie.duration=params["duration"]
+        new_movie.save
+
+        redirect_to("/movies")
+    end
+
+
+    def create_actor
+        render("page_templates/create_actor.html.erb")
+    end
+    def create_director
+        render("page_templates/create_director.html.erb")
+    end
+    def create_movie
+        render("page_templates/create_movie.html.erb")
     end
 
     def update_actor
@@ -154,12 +193,26 @@ class PagesController < ApplicationController
         @title = Movie.find(@id).title
         @duration = Movie.find(@id).duration
         @description = Movie.find(@id).description
-        
        redirect_to "/movies/#{@id}"
     end
 
-    def destroy_row
-        render("page_templates/toast.html.erb")
+    def destroy_actor
+        doomedactor=Actor.find(params["toast_id"])
+        doomedactor.delete
+        doomedactor.save
+        redirect_to("/actors")
+    end
+    def destroy_movie
+        doomedactor=Movie.find(params["toast_id"])
+        doomedactor.delete
+        doomedactor.save
+        redirect_to("/movies")
+    end
+    def destroy_director
+        doomedactor=Director.find(params["toast_id"])
+        doomedactor.delete
+        doomedactor.save
+        redirect_to("/directors")
     end
 
 

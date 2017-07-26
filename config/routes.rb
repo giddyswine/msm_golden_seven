@@ -4,8 +4,12 @@ Rails.application.routes.draw do
     get("/", { :controller => "pages", :action => "index" })
   
     # CREATE
-    get("/directors/new_form", { :controller => "pages", :action => "new_form" })
-    get("/create_director", { :controller => "pages", :action => "create_row" })
+    get("/movies/new_movie", { :controller => "pages", :action => "new_movie" })
+    get("/create_movie", { :controller => "pages", :action => "create_movie" })
+    get("/actors/new_actor", { :controller => "pages", :action => "new_actor" })
+    get("/create_actor", { :controller => "pages", :action => "create_actor" })
+    get("/directors/new_director", { :controller => "pages", :action => "new_director" })
+    get("/create_director", { :controller => "pages", :action => "create_director" })
     
     # READ
     get("/directors", { :controller => "pages", :action => "directors" })
@@ -24,7 +28,9 @@ Rails.application.routes.draw do
     get("/update_movie/:some_id", { :controller => "pages", :action => "update_movie" })
     
     # DELETE
-    get("/delete_director/:toast_id", { :controller => "pages", :action => "destroy_row" })
+    get("/delete_director/:toast_id", { :controller => "pages", :action => "destroy_director" })
+    get("/delete_actor/:toast_id", { :controller => "pages", :action => "destroy_actor" })
+    get("/delete_movie/:toast_id", { :controller => "pages", :action => "destroy_movie" })
 
 
   ActiveAdmin.routes(self)

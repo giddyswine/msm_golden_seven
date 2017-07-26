@@ -10,6 +10,9 @@
   </head>
   
 <h1>All Movies</h1>
+  <a href="create_movie" class="btn btn-default">
+    Add a new movie
+  </a>
 
 <ul>
 <% @movies_array.each do |info| %>
@@ -40,6 +43,9 @@
                 </div>
                 <a href="/delete_movie/<%=Movie.find(info).id%>" class="btn btn-default">
                   Delete
+                </a>
+                <a href="/movies/<%=Movie.find(info).id%>" class="btn btn-default">
+                  Show Details
                 </a>
         </div>
     </div>

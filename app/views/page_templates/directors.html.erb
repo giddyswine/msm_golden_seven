@@ -10,6 +10,9 @@
   </head>
   
 <h1>All Directors</h1>
+  <a href="create_director" class="btn btn-default">
+    Add a new director
+  </a>
 
 <ul>
 <% @director_array.each do |info| %>
@@ -37,6 +40,9 @@
                 </div>
                 <a href="/delete_director/<%=Director.find(info).id%>" class="btn btn-default">
                   Delete
+                </a>
+                <a href="/directors/<%=Director.find(info).id%>" class="btn btn-default">
+                  Show Details
                 </a>
 
         </div>
